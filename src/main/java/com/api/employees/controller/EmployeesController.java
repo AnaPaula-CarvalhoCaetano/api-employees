@@ -25,26 +25,26 @@ public class EmployeesController {
 	private EmployeesService employeesService;
 
 	@GetMapping("/employees/{id}")
-	@ManagedOperation(description = "Retorna um usuário por Id")
+	@ManagedOperation(description = "Retorna um funcionário por Id")
 	public Employees getUserById(@PathVariable("id") long id) {
 		return employeesService.employeesGetById(id);
 	}
 
 	@GetMapping("/employees")
-	@ManagedOperation(description = "Retorna uma lista de usuários")
+	@ManagedOperation(description = "Retorna uma lista de funcionários")
 	public List<Employees> getUsers() {
 		return employeesService.getEmployees();
 	}
 
 	@PostMapping("/add")
-	@ManagedOperation(description = "Cria um usuário")
+	@ManagedOperation(description = "Cria um funcionário")
 	public ResponseEntity<Employees> createEmployees(@RequestBody Employees employees) {
 		Employees createEmployees = employeesService.createEmployees(employees);
 		return ResponseEntity.ok(createEmployees);
 	}
 
 	@PutMapping("/update/{id}")
-	@ManagedOperation(description = "Atualiza um usuário por Id")
+	@ManagedOperation(description = "Atualiza um funcionário por Id")
 	public ResponseEntity<Employees> updateEmployeesById(@RequestBody Employees employees,
 			@PathVariable("id") long id) {
 		Employees updatedEmployees = employeesService.updateEmployees(employees, id);
