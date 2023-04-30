@@ -26,13 +26,13 @@ public class EmployeesController {
 
 	@GetMapping("/employees/{id}")
 	@ManagedOperation(description = "Retorna um funcionário por Id")
-	public Employees getUserById(@PathVariable("id") long id) {
+	public Employees getEmployeesById(@PathVariable("id") long id) {
 		return employeesService.employeesGetById(id);
 	}
 
 	@GetMapping("/employees")
 	@ManagedOperation(description = "Retorna uma lista de funcionários")
-	public List<Employees> getUsers() {
+	public List<Employees> getEmployees() {
 		return employeesService.getEmployees();
 	}
 
